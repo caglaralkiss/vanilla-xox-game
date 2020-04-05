@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-xox-game",
+  "version": "1.0.0",
+  "description": "Vanilla JS implementation of classic XOX game with AI-boosted opponent or real time opponent(via websocket).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caglaralkiss/vanilla-xox-game.git"
+  },
+  "keywords": [
+    "vanilla",
+    "js",
+    "xox",
+    "game",
+    "tic-tac-toe",
+    "ai",
+    "minimax",
+    "websocket"
+  ],
+  "author": "Caglar Alkis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caglaralkiss/vanilla-xox-game/issues"
+  },
+  "homepage": "https://github.com/caglaralkiss/vanilla-xox-game#readme"
+}
