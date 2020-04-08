@@ -4,7 +4,7 @@
   "description": "Vanilla JS implementation of classic XOX game with AI-boosted opponent or real time opponent(via websocket).",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/caglaralkiss/vanilla-xox-game/issues"
   },
-  "homepage": "https://github.com/caglaralkiss/vanilla-xox-game#readme"
+  "homepage": "https://github.com/caglaralkiss/vanilla-xox-game#readme",
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
 }
