@@ -38,18 +38,18 @@ describe('AI', function () {
 				board: unfinishedBoard,
 				hard: {
 					moveVal: 10,
-					x: 0,
-					y: 0
+					row: 0,
+					column: 0
 				},
 				medium: {
 					moveVal: 8,
-					x: 0,
-					y: 1
+					row: 0,
+					column: 1
 				},
 				easy: {
 					moveVal: 8,
-					x: 2,
-					y: 1
+					row: 2,
+					column: 1
 				}
 			}
 		}

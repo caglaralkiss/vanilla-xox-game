@@ -109,8 +109,8 @@
 
 					moves.push({
 						moveVal: moveVal,
-						x: i,
-						y: j
+						row: i,
+						column: j
 					})
 				}
 			}
