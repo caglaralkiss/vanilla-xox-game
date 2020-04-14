@@ -7,7 +7,11 @@
 	 * @enum {string}
 	 */
 	var COLORS = {
-		BOARD_LINE_COLOR: '#ddd'
+		WHITE: '#fff',
+		BLACK: '#000',
+		BOARD_LINE_COLOR: '#ddd',
+		X_MARK_COLOR: '#ffa500',
+		O_MARK_COLOR: '#007a7a'
 	};
 
 	window.app = window.app || {};
