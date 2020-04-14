@@ -38,7 +38,7 @@
 	Player.prototype.makeMove = function (row, column, board, callback) {
 		callback = callback || function () { };
 
-		if (x >= 0 && y >= 0 && board.squares.length > x && board.squares[0].length > y) {
+		if (row >= 0 && column >= 0 && board.squares.length > row && board.squares[0].length > y) {
 			board.markSquare(row, column, this.mark)
 		} else {
 			throw new Error('Player: X or Y axis are out of boundaries of board!');
