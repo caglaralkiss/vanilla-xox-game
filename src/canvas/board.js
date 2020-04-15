@@ -165,7 +165,7 @@
 		this.context.strokeStyle = COLORS.X_MARK_COLOR;
 
 		this.context.beginPath();
-		var offset = 50;
+		var offset = 30;
 
 		var posX = (column * this.sectionSize);
 		var posY = (row * this.sectionSize);
@@ -192,7 +192,7 @@
 			x: (column * this.sectionSize) + halfSection,
 			y: (row * this.sectionSize) + halfSection,
 		};
-		var radius = (this.sectionSize - 100) / 2;
+		var radius = (this.sectionSize - 50) / 2;
 		var startAngle = 0;
 		var endAngle = 2 * Math.PI;
 
