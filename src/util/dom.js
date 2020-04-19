@@ -1,7 +1,7 @@
 (function (window) {
 
 	/**
-	 * Find the first Element in a given scope or in document when scope is not clarified.
+	 * Find the first Element in a given scope or document.
 	 *
 	 * @param {string} selector Refer the selector of the query.
 	 * @param scope
@@ -9,6 +9,17 @@
 	 */
 	window.qs = function (selector, scope) {
 		return (scope || document).querySelector(selector);
+	};
+
+	/**
+	 * Find all element in a given scope or document.
+	 *
+	 * @param selector
+	 * @param scope
+	 * @return {NodeListOf<HTMLElementTagNameMap[*]>}
+	 */
+	window.qsa = function (selector, scope) {
+		return (scope || document).querySelectorAll(selector);
 	};
 
 	/**
