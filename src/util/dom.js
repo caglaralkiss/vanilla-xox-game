@@ -16,7 +16,7 @@
 	 *
 	 * @param selector
 	 * @param scope
-	 * @return {NodeListOf<HTMLElementTagNameMap[*]>}
+	 * @return {NodeListOf<Element>}
 	 */
 	window.qsa = function (selector, scope) {
 		return (scope || document).querySelectorAll(selector);
