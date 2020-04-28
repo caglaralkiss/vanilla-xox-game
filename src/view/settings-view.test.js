@@ -77,7 +77,7 @@ describe('SettingsView', function () {
 		const mockInput = createMockInput('Bohr', GAME_MODE.Computer, GAME_LEVEL.Hard);
 
 		const settingsView = new SettingsView();
-		settingsView.bind('playClick', function (formData) {
+		settingsView.onPlayClick(function (formData) {
 			expect(formData).toEqual(mockInput);
 		});
 		setInputDataToView(settingsView, mockInput);
@@ -88,8 +88,6 @@ describe('SettingsView', function () {
 		const mockInput = createMockInput('Avicenna', GAME_MODE.Computer, GAME_LEVEL.Medium);
 
 		const settingsView = new SettingsView();
-
-		settingsView.bind('difficultyVisibility');
 		setInputDataToView(settingsView, mockInput);
 
 		const modeButtonsArr = Array.from(settingsView.$modeInput);
