@@ -33,12 +33,12 @@
 	 * @param {number} row Horizontal move on the specified board.
 	 * @param {number} column Vertical move on the specified board.
 	 * @param {Board} board Board that the movement will be applied
-	 * @param {function} callback The callback to fire after movement is done.
+	 * @param {function} [callback] callback The callback to fire after movement is done.
 	 */
 	Player.prototype.makeMove = function (row, column, board, callback) {
 		callback = callback || function () { };
 
-		if (row >= 0 && column >= 0 && board.squares.length > row && board.squares[0].length > y) {
+		if (row >= 0 && column >= 0 && board.squares.length > row && board.squares[0].length > column) {
 			board.markSquare(row, column, this.mark)
 		} else {
 			throw new Error('Player: X or Y axis are out of boundaries of board!');
