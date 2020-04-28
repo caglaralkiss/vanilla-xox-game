@@ -142,6 +142,37 @@
 	};
 
 	/**
+	 * Bind 'opponentClick' custom event to canvas.
+	 *
+	 * @param {function} handler Callback function to pass position and opponent flag.
+	 */
+	CanvasBoard.prototype.onOpponentClick = function (handler) {
+		var self = this;
+
+		$on(self.canvas, 'opponentClick', function (event) {
+			handler(event.detail, true);
+		})
+	};
+
+	/**
+	 * Custom event dispatcher to act opponent move.
+	 * It can be used to mimic click event on a specific area at canvas.
+	 *
+	 * @param {number} row
+	 * @param {number} column
+	 */
+	CanvasBoard.prototype.dispatchOpponentClick = function (row, column) {
+		var event = new CustomEvent('opponentClick', {
+			detail: {
+				row: row,
+				column: column
+			}
+		});
+
+		this.canvas.dispatchEvent(event);
+	};
+
+	/**
 	 * Redraw marks from commands cache.
 	 */
 	CanvasBoard.prototype.redrawMarks = function () {
