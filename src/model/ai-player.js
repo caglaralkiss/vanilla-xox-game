@@ -28,7 +28,7 @@
 		return AI.findOptimalMove(board, this.mark, this.gameLevel);
 	};
 
-	window.app = window.app | {};
+	window.app = window.app || {};
 	window.app.Model = window.app.Model || {};
 	window.app.Model.AIPlayer = AIPlayer;
 })(window);
