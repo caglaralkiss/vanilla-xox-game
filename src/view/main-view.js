@@ -12,6 +12,7 @@
         this.$play = qs('#play');
         this.$settings = qs('#settings');
         this.$loadingSpinner = qs('#loading-spinner');
+        this.$leaveGameButton = qs('#leave-button');
     }
 
     MainView.prototype = {
@@ -32,6 +33,11 @@
 		    this.$settings.style.display = 'none';
 		    this.$loadingSpinner.style.display = 'block';
 	    },
+	    onLeaveGame: function (handler) {
+			$on(this.$leaveGameButton, 'click', function () {
+				handler();
+			})
+	    }
     };
 
     window.app = window.app || {};
