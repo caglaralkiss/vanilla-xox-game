@@ -104,12 +104,14 @@
 			} else if (row0 === SQUARE_STATE.O) {
 				return SQUARE_STATE.O;
 			}
+			return SQUARE_STATE.EMPTY;
 		} else if (col0 === col1 && col1 === col2) {
 			if (col0 === SQUARE_STATE.X) {
 				return SQUARE_STATE.X;
 			} else if (col0 === SQUARE_STATE.O) {
 				return SQUARE_STATE.O;
 			}
+			return SQUARE_STATE.EMPTY;
 		} else {
 			return SQUARE_STATE.EMPTY;
 		}
@@ -128,12 +130,14 @@
 			} else if (this.squares[0][0].mark === SQUARE_STATE.O) {
 				return SQUARE_STATE.O;
 			}
+			return SQUARE_STATE.EMPTY
 		} else if (this.squares[0][2].mark === this.squares[1][1].mark && this.squares[1][1].mark === this.squares[2][0].mark) {
 			if (this.squares[0][2].mark === SQUARE_STATE.X) {
 				return SQUARE_STATE.X;
 			} else if (this.squares[0][2].mark === SQUARE_STATE.O) {
 				return SQUARE_STATE.O;
 			}
+			return SQUARE_STATE.EMPTY;
 		} else {
 			return SQUARE_STATE.EMPTY;
 		}
