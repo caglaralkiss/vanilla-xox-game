@@ -4,7 +4,11 @@
   "description": "Vanilla JS implementation of classic XOX game with AI-boosted opponent or real time opponent(via websocket).",
   "main": "app.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "build-dev": "cross-env NODE_ENV=DEVELOPMENT node build.js",
+    "build-prod": "cross-env NODE_ENV=PRODUCTION node build.js",
+    "serve": "cross-env npm run test & npm run build-dev & npx http-server ./dist --port 8000 --cors",
+    "build": "cross-env npm run test & npm run build-prod"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,8 @@
   },
   "homepage": "https://github.com/caglaralkiss/vanilla-xox-game#readme",
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "fs-extra": "^9.0.0",
     "jest": "^25.3.0"
   }
 }
