@@ -1,25 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="public/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="public/manifest.json" />
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="public/manifest.json" />
 
-        <link rel="stylesheet" href="src/styles/normalize.css">
-        <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="src/styles/normalize.css">
+    <link rel="stylesheet" href="src/styles/index.css">
 
-        <title>Tic-Tac-Toe Fun!</title>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <header>Tic-Tac-Toe Fun!</header>
-        <div class="container">
-            <canvas id="game-board" width="300" height="300">
-                Game Board
-            </canvas>
+    <title>Tic-Tac-Toe Fun!</title>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+
+<header>
+    <h1>TicTacToe</h1>
+</header>
+
+<section class="main">
+    <!-- Includes Players and GameBoard -->
+    <div id="play">
+        <div class="play__wrapper">
+            <div id="player" class="player">
+                <div class="player__name">Player</div>
+                <div class="player__score">0</div>
+                <div class="player__mark">Unknown</div>
+            </div>
+            <div class="game-wrapper">
+                <canvas id="game-board">
+                    Game Board
+                </canvas>
+                <button id="leave-button">Leave Game</button>
+            </div>
+            <div id="opponent" class="player" >
+                <div class="player__name">Opponent</div>
+                <div class="player__score">0</div>
+                <div class="player__mark">Unknown</div>
+            </div>
         </div>
-        <footer class="info"></footer>
-        <script src="src/app.js"></script>
-    </body>
+    </div>
+
+    <!-- Loading Spinner while waiting to connect Opponents -->
+    <div id="loading-spinner">
+        Spinner
+    </div>
+
+    <!-- Settings to arrange new game -->
+    <div id="settings">
+        <div class="settings__wrapper">
+            <form class="settings__form">
+                <h2 class="settings__title">Game Settings</h2>
+
+                <div class="form__group">
+                    <input type="text" class="form__input" placeholder="Nickname" id="name" required>
+                    <label for="name" class="form__label">Nickname</label>
+                </div>
+
+                <div class="form__group form__group--mode">
+                    <div class="form__radio-group">
+                        <input type="radio"
+                               class="form__radio-input"
+                               value="computer"
+                               id="computer"
+                               checked
+                               name="mode">
+                        <label for="computer" class="form__radio-label">
+                            <span class="form__radio-button"></span>
+                            Play against computer
+                        </label>
+                    </div>
+
+                    <div class="form__radio-group">
+                        <input type="radio" class="form__radio-input" value="real" id="real" name="mode">
+                        <label for="real" class="form__radio-label">
+                            <span class="form__radio-button"></span>
+                            Play against real user
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form__group form__group--difficulty">
+                    <div class="form__radio-group">
+                        <input type="radio"
+                               class="form__radio-input"
+                               value="easy"
+                               id="easy"
+                               checked
+                               name="difficulty">
+                        <label for="easy" class="form__radio-label">
+                            <span class="form__radio-button"></span>
+                            Easy
+                        </label>
+                    </div>
+
+                    <div class="form__radio-group">
+                        <input type="radio" class="form__radio-input" value="medium" id="medium" name="difficulty">
+                        <label for="medium" class="form__radio-label">
+                            <span class="form__radio-button"></span>
+                            Medium
+                        </label>
+                    </div>
+
+                    <div class="form__radio-group">
+                        <input type="radio" class="form__radio-input" value="hard" id="hard" name="difficulty">
+                        <label for="hard" class="form__radio-label">
+                            <span class="form__radio-button"></span>
+                            Hard
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <button id="play__button" class="btn btn--green">Play!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <ul>
+        <li>Copyright Caglar Alkis</li>
+        <li>Contact</li>
+    </ul>
+</footer>
+
+<script type="text/javascript">
+
+    var ENVIRONMENT = "%%CURRENT_ENVIRONMENT%%"
+
+    window.CURR_ENVIRONMENT = ENVIRONMENT;
+
+	var loadScripts = function (sources) {
+
+		sources.forEach(src => {
+			var script = document.createElement('script');
+			script.src = src;
+			script.async = false;
+			document.body.appendChild(script);
+		})
+	};
+
+	loadScripts([
+		'src/constants/environment.js',
+		'src/constants/game-mode.js',
+		'src/constants/game-level.js',
+		'src/constants/square-state.js',
+		'src/constants/message-type.js',
+		'src/constants/message-error-type.js',
+		'src/constants/evaluation-score.js',
+		'src/constants/colors.js',
+		'src/ws/ws-client.js',
+		'src/util/ai.js',
+		'src/util/dom.js',
+		'src/canvas/board.js',
+		'src/model/square.js',
+		'src/model/board.js',
+		'src/model/player.js',
+		'src/model/model.js',
+		'src/model/ai-player.js',
+		'src/view/settings-view.js',
+		'src/view/player-view.js',
+		'src/view/main-view.js',
+		'src/view/view.js',
+		'src/controller/controller.js',
+		'src/app.js'
+	]);
+</script>
+</body>
 </html>
+

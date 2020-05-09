@@ -1,4 +1,15 @@
-var canvas = document.getElementById('game-board');
-var ctx = canvas.getContext('2d');
-ctx.fillStyle = 'green';
-ctx.fillRect(10, 10, 1000, 1000);
+(function () {
+    'use strict';
+
+    var Model = window.app.Model.Model;
+    var View = window.app.View.View;
+    var Controller = window.app.Controller;
+
+    function App() {
+        var model = new Model();
+        var view = new View();
+        var controller = new Controller(model, view);
+    }
+
+    new App();
+})();
