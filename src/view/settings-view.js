@@ -49,6 +49,10 @@
 		}
 	};
 
+	SettingsView.prototype.setDifficultyViewVisibility = function (visibility) {
+		this.$difficultyView.style.visibility = visibility;
+	}
+
 	/**
 	 * @return {string}
 	 */
@@ -93,6 +97,7 @@
 		this.setNameInput('');
 		this.setModeInput(GAME_MODE.Computer);
 		this.setDifficultyInput(GAME_LEVEL.Easy);
+		this.setDifficultyViewVisibility('visible');
 	};
 
 	/**
@@ -145,9 +150,9 @@
 		for (i; i < this.$modeInput.length; i++) {
 			$on(this.$modeInput[i], 'click', function () {
 				if (self.getModeInput() === GAME_MODE.Computer) {
-					self.$difficultyView.style.visibility = 'visible';
+					self.setDifficultyViewVisibility('visible');
 				} else {
-					self.$difficultyView.style.visibility = 'hidden';
+					self.setDifficultyViewVisibility('hidden');
 				}
 			})
 		}
