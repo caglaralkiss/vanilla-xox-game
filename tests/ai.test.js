@@ -1,9 +1,9 @@
-require('../constants/evaluation-score');
-require('../constants/square-state');
-require('../constants/game-level');
-require('../model/square');
-require('../model/board');
-require('./ai');
+require('../src/constants/evaluation-score');
+require('../src/constants/square-state');
+require('../src/constants/game-level');
+require('../src/model/square');
+require('../src/model/board');
+require('../src/util/ai');
 
 describe('AI', function () {
 	const { SQUARE_STATE, EVALUATION_SCORE, GAME_LEVEL } = window.app.Constants;

@@ -1,7 +1,7 @@
-require('../util/dom');
-require('../constants/square-state');
-require('./player-view');
-require('../model/player');
+require('../src/util/dom');
+require('../src/constants/square-state');
+require('../src/view/player-view');
+require('../src/model/player');
 
 describe('PlayerView', function () {
 	const parser = new DOMParser();

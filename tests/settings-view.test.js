@@ -1,7 +1,7 @@
-require('../util/dom');
-require('../constants/game-level');
-require('../constants/game-mode');
-require('./settings-view');
+require('../src/util/dom');
+require('../src/constants/game-level');
+require('../src/constants/game-mode');
+require('../src/view/settings-view');
 
 describe('SettingsView', function () {
 	const GAME_MODE = window.app.Constants.GAME_MODE;

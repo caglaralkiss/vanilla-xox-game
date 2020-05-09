@@ -1,4 +1,4 @@
-require('./dom');
+require('../src/util/dom');
 
 describe('DOM', function () {
 	const parser = new DOMParser();

@@ -1,5 +1,5 @@
-require('../util/dom');
-require('./main-view');
+require('../src/util/dom');
+require('../src/view/main-view');
 
 describe('MainView', function () {
 	const parser = new DOMParser();
