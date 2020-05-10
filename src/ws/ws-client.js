@@ -11,12 +11,15 @@ var WsClient = (function () {
     // Environment enum
     var Environment = window.app.Constants.Environment;
 
+    // Websocket urls for different environments
+    var WsUrl = window.app.Constants.WsUrl;
+
     // Curr environment injected to window at build phase
     var CURR_ENVIRONMENT = window.CURR_ENVIRONMENT;
 
     // WS-URL based on current environment.
     var WEBSOCKET_SERVER_URL = CURR_ENVIRONMENT === Environment.DEVELOPMENT ?
-        'ws://localhost:8080/tictactoe-game/' : 'ws://[prodUrl]:[prodPort]/tictactoe-game/'
+        WsUrl.DEVELOPMENT : WsUrl.PRODUCTION;
 
     var instance = null;
 
