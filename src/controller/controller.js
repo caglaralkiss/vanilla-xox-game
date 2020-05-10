@@ -162,7 +162,7 @@
 			// @TODO check this implementation to see root cause
 			setTimeout(function () {
 				if (winner !== SQUARE_STATE.EMPTY) {
-					self._declareWinner(winner);
+					self._declareWinner(winner, 10);
 				} else if (self.model.board.isFilled()) {
 					self._declareDraw();
 				} else {
@@ -195,14 +195,14 @@
 	 *
 	 * @param {Player} player
 	 * @param {Player} opponent
-	 * @param {SQUARE_STATE} turn
+	 * @param {SQUARE_STATE} [turn] turn
 	 * @private
 	 */
 	Controller.prototype._initializeNewGame = function (player, opponent, turn) {
 		if (this.model.mode === GAME_MODE.Real) {
 			this.model.updateTurn(turn)
 		} else {
-			this.board = new Board();
+			this.model.updateBoard(new Board());
 		}
 
 		this.model.updatePlayer(player);
