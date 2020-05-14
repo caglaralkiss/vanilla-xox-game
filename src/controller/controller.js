@@ -41,6 +41,8 @@
 	 * @param {object} formData Data returned after settings submission.
 	 */
 	Controller.prototype.settingsHandler = function (formData) {
+		var self = this;
+
 		this.model.updateMode(formData.mode);
 
 		if (formData.mode === GAME_MODE.Computer) {
@@ -53,6 +55,15 @@
 
 			this.wsClient.connect(formData.name);
 			this.wsClient.onMessage(this.wsMessageHandler.bind(this));
+
+			var waitingTime = 30000;
+
+			setTimeout(function () {
+				if (self.model.player === null) {
+					alert('It seems there is no active player! Try again!')
+					self.leaveGameHandler();
+				}
+			}, waitingTime);
 		}
 	};
 
@@ -65,7 +76,6 @@
 		}
 
 		this._resetGame();
-		this.view.settingsView.reset();
 		this.view.render('setFragment', 'settings')
 	}
 
