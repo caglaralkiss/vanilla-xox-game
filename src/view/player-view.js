@@ -1,6 +1,8 @@
 (function (window) {
 	'use strict';
 
+	var COLORS = window.app.Constants.COLORS;
+
 	/**
 	 * View that includes Player/Opponent DOM bindings.
 	 * It includes getters & setters for Player template.
@@ -10,6 +12,7 @@
 	 * @constructor
 	 */
 	function PlayerView(playerModel, isOpponent) {
+		this.$root = qs(isOpponent ? '#opponent' : '#player');
 		this.$name = qs((isOpponent ? '#opponent' : '#player') +  ' .player__name');
 		this.$mark = qs((isOpponent ? '#opponent' : '#player') +  ' .player__mark');
 		this.$score = qs((isOpponent ? '#opponent' : '#player') +  ' .player__score');
@@ -30,6 +33,16 @@
 	}
 
 	PlayerView.prototype = {
+		/**
+		 * @param {SQUARE_STATE} mark
+		 */
+		setBackgroundColor: function (mark) {
+			if (mark === 'X') {
+				this.$root.style.backgroundColor = COLORS.X_MARK_COLOR;
+			} else {
+				this.$root.style.backgroundColor = COLORS.O_MARK_COLOR;
+			}
+		},
 		/**
 		 * @param {string} name
 		 */
