@@ -29,7 +29,7 @@ describe('MainView', function () {
 		const mainView = new MainView();
 
 		mainView.displaySettings();
-		expect(mainView.$settings.style.display).toBe('block');
+		expect(mainView.$settings.style.display).toBe('flex');
 		expect(mainView.$loadingSpinner.style.display).toBe('none');
 		expect(mainView.$play.style.display).toBe('none');
 	});
@@ -41,7 +41,7 @@ describe('MainView', function () {
 		mainView.displayPlay();
 		expect(mainView.$settings.style.display).toBe('none');
 		expect(mainView.$loadingSpinner.style.display).toBe('none');
-		expect(mainView.$play.style.display).toBe('block');
+		expect(mainView.$play.style.display).toBe('flex');
 	});
 
 
@@ -50,7 +50,7 @@ describe('MainView', function () {
 
 		mainView.displayLoadingSpinner();
 		expect(mainView.$settings.style.display).toBe('none');
-		expect(mainView.$loadingSpinner.style.display).toBe('block');
+		expect(mainView.$loadingSpinner.style.display).toBe('flex');
 		expect(mainView.$play.style.display).toBe('none');
 	});
 });

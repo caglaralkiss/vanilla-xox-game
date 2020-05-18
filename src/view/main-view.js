@@ -17,21 +17,21 @@
 
     MainView.prototype = {
     	displayPlay: function () {
-		    this.$play.style.display = 'block';
+		    this.$play.style.display = 'flex';
 		    this.$settings.style.display = 'none';
 		    this.$loadingSpinner.style.display = 'none';
 	    },
 
 	    displaySettings: function () {
 		    this.$play.style.display = 'none';
-		    this.$settings.style.display = 'block';
+		    this.$settings.style.display = 'flex';
 		    this.$loadingSpinner.style.display = 'none';
 	    },
 
 	    displayLoadingSpinner: function () {
 		    this.$play.style.display = 'none';
 		    this.$settings.style.display = 'none';
-		    this.$loadingSpinner.style.display = 'block';
+		    this.$loadingSpinner.style.display = 'flex';
 	    },
 	    onLeaveGame: function (handler) {
 			$on(this.$leaveGameButton, 'click', function () {
