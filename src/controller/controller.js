@@ -220,6 +220,9 @@
 		this.view.playerView = new PlayerView(player);
 		this.view.opponentView = new PlayerView(opponent, true);
 
+		this.view.playerView.setBackgroundColor(this.model.player.mark);
+		this.view.opponentView.setBackgroundColor(this.model.opponent.mark);
+
 		this.view.render('setFragment', 'play');
 	}
 
