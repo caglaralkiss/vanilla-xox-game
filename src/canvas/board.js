@@ -252,17 +252,13 @@
 
 	/**
 	 * Calculate edge of the board.
+	 * Size will be dependent on the parent element.
 	 *
 	 * @return {number}
 	 * @private
 	 */
 	CanvasBoard.prototype._calculateCanvasSize = function () {
-		var browserWidth = window.getBrowserWidth();
-		var browserHeight = window.getBrowserHeight();
-
-		var minSize = Math.min(browserHeight, browserWidth);
-
-		return (minSize * 50) / 100;
+		return this.canvas.parentElement.clientWidth;
 	};
 
 	/**
@@ -272,14 +268,14 @@
 	 * @private
 	 */
 	CanvasBoard.prototype._calculateLineWidth = function () {
-		if (this.canvasSize >= 500 && this.canvasSize < 700) {
-			return 5;
-		} else if (this.canvasSize >= 700 && this.canvasSize < 900) {
-			return 7;
-		} else if (this.canvasSize >= 900 && this.canvasSize < 1200) {
-			return 9;
-		} else {
+		if (this.canvasSize >= 0 && this.canvasSize < 100) {
+			return 8;
+		} else if (this.canvasSize >= 200 && this.canvasSize < 300) {
+			return 10;
+		} else if (this.canvasSize >= 300) {
 			return 12;
+		} else {
+			return 14;
 		}
 	};
 
