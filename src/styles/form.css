@@ -1,0 +1,137 @@
+.form__group:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.form__group:last-child {
+    align-self: center;
+}
+
+.form__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all .3s;
+}
+
+.form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border-bottom: 3px solid aliceblue;
+}
+
+.form__input:focus:invalid {
+    border-bottom: 3px solid #F15946;
+}
+
+.form__input::-webkit-input-placeholder {
+    color: #1abc9c;
+}
+
+.form__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+}
+
+.form__radio-group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .form__radio-group {
+        width: 70%;
+        display: inline-block;
+    }
+}
+
+.form__radio-input {
+    display: none;
+}
+
+.form__radio-label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.form__radio-button {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 3px solid aliceblue;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.form__radio-button::after {
+    content: "";
+    display: block;
+    height: .7rem;
+    width: .7rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.form__radio-input:checked ~.form__radio-label .form__radio-button::after {
+    opacity: 1;
+}
+
+.btn {
+    color: #1abc9c;
+    background-color: aliceblue;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:hover::after {
+    background-color: aliceblue;
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn:active, .btn:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+

@@ -59,6 +59,7 @@
 			    switch (paramMap) {
 				    case 'play':
 				    	self.mainView.displayPlay();
+				    	self.canvasView.clearBoard();
 					    break;
 				    case 'settings':
 				    	self.mainView.displaySettings();

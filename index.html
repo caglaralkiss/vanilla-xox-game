@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="public/manifest.json" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="src/styles/normalize.css">
     <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="src/styles/form.css">
+    <link rel="stylesheet" href="src/styles/layout.css">
+    <link rel="stylesheet" href="src/styles/components.css">
+    <link rel="stylesheet" href="src/styles/logos.css">
 
     <title>Tic-Tac-Toe Fun!</title>
 </head>
@@ -15,7 +21,7 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
 
 <header>
-    <h1>TicTacToe</h1>
+    <h1>Tic Tac Toe</h1>
 </header>
 
 <section class="main">
@@ -23,27 +29,48 @@
     <div id="play">
         <div class="play__wrapper">
             <div id="player" class="player">
-                <div class="player__name">Player</div>
-                <div class="player__score">0</div>
-                <div class="player__mark">Unknown</div>
+                <div class="player__label">Name:
+                    <span class="player__name">Player</span>
+                </div>
+                <div class="player__label">Score:
+                    <span class="player__score">0</span>
+                </div>
+                <div class="player__label">Mark:
+                    <span class="player__mark">Unknown</span>
+                </div>
             </div>
             <div class="game-wrapper">
                 <canvas id="game-board">
                     Game Board
                 </canvas>
-                <button id="leave-button">Leave Game</button>
             </div>
-            <div id="opponent" class="player" >
-                <div class="player__name">Opponent</div>
-                <div class="player__score">0</div>
-                <div class="player__mark">Unknown</div>
+                    <div id="opponent" class="player" >
+                        <div class="player__label">Name:
+                            <span class="player__name">Opponent</span>
+                        </div>
+                        <div class="player__label">Score:
+                            <span class="player__score">0</span>
+
+                        </div>
+                        <div class="player__label">Mark:
+                    <span class="player__mark">Unknown</span>
+                </div>
             </div>
+            <div class="btn" id="leave-button">Leave Game</div>
         </div>
     </div>
 
     <!-- Loading Spinner while waiting to connect Opponents -->
     <div id="loading-spinner">
-        Spinner
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+        <div>Trying to find opponent...</div>
     </div>
 
     <!-- Settings to arrange new game -->
@@ -112,7 +139,7 @@
                 </div>
 
                 <div class="form__group">
-                    <button id="play__button" class="btn btn--green">Play!</button>
+                    <div id="play__button" class="btn">Play!</div>
                 </div>
             </form>
         </div>
@@ -120,10 +147,14 @@
 </section>
 
 <footer>
-    <ul>
-        <li>Copyright Caglar Alkis</li>
-        <li>Contact</li>
-    </ul>
+    <div class="media__list">
+        <a href="https://github.com/caglaralkiss" target="_blank" class="fa fa-github"></a>
+        <a href="https://tr.linkedin.com/in/caglaralkis" target="_blank" class="fa fa-linkedin"></a>
+        <a href="https://www.instagram.com/caglaralkiss/" target="_blank" class="fa fa-instagram"></a>
+    </div>
+    <div class="legal">
+        <span>Caglar Alkis &copy; 2020. All rights reserved.</span>
+    </div>
 </footer>
 
 <script type="text/javascript">

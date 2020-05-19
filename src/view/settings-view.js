@@ -17,6 +17,7 @@
 		this.$playButton = qs('#play__button');
 
 		this._bindModeEvent();
+		this._bindDifficultyEvent();
 	}
 
 	/**
@@ -149,6 +150,9 @@
 
 		for (i; i < this.$modeInput.length; i++) {
 			$on(this.$modeInput[i], 'click', function () {
+
+				self._synchronizeModeCheckedAttr();
+
 				if (self.getModeInput() === GAME_MODE.Computer) {
 					self.setDifficultyViewVisibility('visible');
 				} else {
@@ -157,6 +161,44 @@
 			})
 		}
 	};
+
+	SettingsView.prototype._bindDifficultyEvent = function () {
+		var i = 0;
+		var self = this;
+
+		for (i; i < this.$difficultyInput.length; i++) {
+			$on(this.$difficultyInput[i], 'click', function () {
+				self._synchronizeDifficultyCheckedAttr();
+			})
+		}
+	}
+
+	SettingsView.prototype._synchronizeModeCheckedAttr = function () {
+		if (this.getModeInput() === GAME_MODE.Computer) {
+			this.$modeInput[0].setAttribute('checked', 'checked');
+			this.$modeInput[1].removeAttribute('checked');
+		} else {
+			this.$modeInput[0].removeAttribute('checked');
+			this.$modeInput[1].setAttribute('checked', 'checked');
+		}
+	}
+
+	SettingsView.prototype._synchronizeDifficultyCheckedAttr = function () {
+		var difficulty = this.getDifficultyInput();
+		if (difficulty === GAME_LEVEL.Easy) {
+			this.$difficultyInput[0].setAttribute('checked', 'checked');
+			this.$difficultyInput[1].removeAttribute('checked');
+			this.$difficultyInput[2].removeAttribute('checked');
+		} else if (difficulty === GAME_LEVEL.Medium) {
+			this.$difficultyInput[0].removeAttribute('checked');
+			this.$difficultyInput[1].setAttribute('checked', 'checked');
+			this.$difficultyInput[2].removeAttribute('checked');
+		} else {
+			this.$difficultyInput[0].removeAttribute('checked');
+			this.$difficultyInput[1].removeAttribute('checked');
+			this.$difficultyInput[2].setAttribute('checked', 'checked');
+		}
+	}
 
 	/**
 	 * Checks validity of name input.

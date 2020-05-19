@@ -1,0 +1,46 @@
+header {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+#settings {
+    width: 100%;
+}
+
+#play {
+    height: 100%;
+}
+
+.play__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#loading-spinner {
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
