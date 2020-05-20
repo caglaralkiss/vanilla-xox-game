@@ -25,7 +25,7 @@ Docker(optional)
 #### Build with Docker
 Alternatively, you can create a Docker container to serve static files with Nginx server. To create a container:
 * Navigate to project directory in your local.
-* Execute the following command for <b>development</b>:``docker build -t xox-client .`` For <b>production</b>, execute ``docker build -t --build-arg NODE_ENV_VAR=PRODUCTION xox-client .``
+* Execute the following command for <b>development</b>:``docker build -t xox-client .`` For <b>production</b>, execute ``docker build --build-arg NODE_ENV_VAR=PRODUCTION -t xox-client .``
 * After image is created, create a container with following command:
 ```
 docker run -p 8000:80 xox-client
