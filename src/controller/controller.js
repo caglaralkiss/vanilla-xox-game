@@ -55,6 +55,7 @@
 
 			this.wsClient.connect(formData.name);
 			this.wsClient.onMessage(this.wsMessageHandler.bind(this));
+			this.wsClient.onClose(this.wsCloseHandler.bind(this));
 
 			var waitingTime = 30000;
 
@@ -77,6 +78,17 @@
 
 		this._resetGame();
 		this.view.render('setFragment', 'settings')
+	}
+
+	/**
+	 * WsClient close handler.
+	 */
+	Controller.prototype.wsCloseHandler = function () {
+		// It is a guard to force mobile users to reset game when phone is locked.
+		if (this.model.mode) {
+			this._resetGame();
+			this.view.render('setFragment', 'settings');
+		}
 	}
 
 	/**
@@ -124,13 +136,14 @@
 				if (message.winner === SQUARE_STATE.EMPTY) {
 					this._declareDraw()
 				} else {
-					var winnerPlayerScore = message.player.id === this.model.player.id ?
-						message.player.score : message.opponent.score;
+					var winnerPlayer = message.winner === this.model.player.mark ?
+						message.player : message.opponent;
 
-					this._declareWinner(message.winner, winnerPlayerScore)
+					this._declareWinner(winnerPlayer);
 				}
 
 				this.view.canvasView.clearBoard();
+				this.model.updateTurn(message.turn);
 				break;
 			case MESSAGE_TYPE.GameError:
 				debugger
@@ -172,7 +185,8 @@
 			// @TODO check this implementation to see root cause
 			setTimeout(function () {
 				if (winner !== SQUARE_STATE.EMPTY) {
-					self._declareWinner(winner, 10);
+					var winnerPlayer = self._findWinnerPlayer(winner);
+					self._declareWinner(winnerPlayer);
 				} else if (self.model.board.isFilled()) {
 					self._declareDraw();
 				} else {
@@ -238,7 +252,9 @@
 		this.model.updateMode(null);
 
 		this.model.updatePlayer(null);
+		this.view.playerView = null;
 		this.model.updateOpponent(null);
+		this.view.opponentView = null;
 		this.model.updateBoard(null);
 		this.view.canvasView.clearBoard();
 	}
@@ -247,22 +263,14 @@
 	 * Declare the winner player of the game and update his/her score.
 	 * Also, it clear the board for the next game.
 	 *
-	 * @param {SQUARE_STATE} winner Mark of the winner player.
-	 * @param {number} score New score of the winner player.
+	 * @param {Player} winnerPlayer Mark of the winner player.
 	 * @private
 	 */
-	Controller.prototype._declareWinner = function (winner, score) {
-		var winnerPlayer;
-		var players = [this.model.player, this.model.opponent];
-		var i = 0;
+	Controller.prototype._declareWinner = function (winnerPlayer) {
+		var score = this.model.mode === GAME_MODE.Real ?
+			winnerPlayer.score : winnerPlayer.score + 10;
 
-		for (i; i < players.length; i++) {
-			if (players[i].mark === winner) {
-				winnerPlayer = players[i];
-			}
-		}
-
-		if (winnerPlayer === this.model.player) {
+		if (winnerPlayer.id === this.model.player.id) {
 			alert('Winner is ' + this.model.player.name);
 			this.model.player.updateScore(score);
 			this.view.playerView.setScore(this.model.player.score);
@@ -286,9 +294,22 @@
 	 */
 	Controller.prototype._declareDraw = function () {
 		alert('Draw!');
-		this.model.board.initializeBoard();
+		if (this.model.mode === GAME_MODE.Computer) {
+			this.model.board.initializeBoard();
+		}
 		this.view.canvasView.clearBoard();
 	};
+
+	/**
+	 * Find the winner player amongst Player and Opponent
+	 *
+	 * @param winnerMark
+	 * @return {null|Player}
+	 * @private
+	 */
+	Controller.prototype._findWinnerPlayer = function (winnerMark) {
+		return winnerMark === this.model.player.mark ? this.model.player : this.model.opponent;
+	}
 
 	window.app = window.app || {};
 	window.app.Controller = Controller;

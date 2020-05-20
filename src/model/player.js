@@ -23,7 +23,7 @@
 	 * @param {number} score Score to be added the current score.
 	 */
 	Player.prototype.updateScore = function (score) {
-			this.score += score;
+			this.score = score;
 	};
 
 
