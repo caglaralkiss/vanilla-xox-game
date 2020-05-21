@@ -116,6 +116,10 @@
 
 			if (isValid) {
 				handler(self.getFormData());
+			} else {
+				if (!self.getFormData().name) {
+					alert('You should set a name before play TicTacToe!');
+				}
 			}
 		})
 	};
