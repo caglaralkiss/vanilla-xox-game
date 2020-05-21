@@ -22,7 +22,7 @@
 				this.setName(playerModel.name);
 			}
 
-			if (playerModel.score) {
+			if (!isNaN(Number(playerModel.score))) {
 				this.setScore(playerModel.score);
 			}
 
